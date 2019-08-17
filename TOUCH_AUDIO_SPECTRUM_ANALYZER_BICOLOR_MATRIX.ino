@@ -192,11 +192,6 @@ IR_calib_low[15] = 44 ;
 
 #if PRESCALE_32
   // Set prescale to 32 for ADC
-  // Sampling rate is [ADC clock] / [prescaler] / [conversion clock cycles]
-  // For Arduino Mega ADC clock is 16 MHz and a conversion takes 13 ADC clocks, prescaler=32 => fs = 38462 (Hz) => fmax = fs/2
-  // *** if FFT_N=064, (38462 /2)/(64/2) = 600 hz per bin
-  // *** if FFT_N=128, (38462 /2)/(64/2) = 300 hz per bin
-  // *** if FFT_N=256, (38462 /2)/(64/2) = 150 hz per bin
   sbi(ADCSRA,ADPS2) ;
   cbi(ADCSRA,ADPS1) ;
   sbi(ADCSRA,ADPS0) ;
